@@ -88,6 +88,7 @@ namespace Task
                 case 28: Avg28 (); break;
                 case 29: Avg29(); break;
                 case 30: Avg30(); break;
+                case 31: Avg31(); break;
                 case 32: Avg32(); break;
                 case 33: Avg33(); break;
                 case 34: Avg34(); break;
@@ -1219,23 +1220,63 @@ namespace Task
                 "Продемонстрировать использование через using." + Environment.NewLine +
                 "Дополнительно: продемонстрировать using-декларацию (C# 8+, using var)." + Environment.NewLine);
 
-            
+
             Console.WriteLine("--- 1. Классический блок using ---");
             using (FileWriter fw1 = new FileWriter("test1.txt"))
             {
                 fw1.WriteLine("Строка записана через классический using(FileWriter ...).");
                 Console.WriteLine("Данные успешно отправлены в test1.txt.");
-            } 
+            }
 
-            
+
             Console.WriteLine(Environment.NewLine + "--- 2. using-декларация (using var) ---");
             {
                 using var fw2 = new FileWriter("test2.txt");
                 fw2.WriteLine("Строка записана через using var.");
                 Console.WriteLine("Данные успешно отправлены в test2.txt.");
-            } 
+            }
 
             Console.WriteLine(Environment.NewLine + "Файлы успешно сформированы и закрыты.");
+        }
+        public static void Avg34()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Задание 34. LINQ: группировка слов по первой букве");
+            Console.WriteLine("Что сделать: сгруппировать слова по первой букве.");
+            Console.WriteLine("Требования:" + Environment.NewLine +
+                "Взять список из 10 и более слов." + Environment.NewLine +
+                "Сгруппировать слова через GroupBy(w => w[0])." + Environment.NewLine +
+                "Отсортировать группы по первой букве." + Environment.NewLine +
+                "Внутри группы отсортировать слова." + Environment.NewLine +
+                "Вывести букву и список слов." + Environment.NewLine);
+
+            List<string> words = new List<string>()
+{
+    "Апельсин",
+    "Арбуз",
+    "Банан",
+    "Брусника",
+    "Вишня",
+    "Виноград",
+    "Груша",
+    "Гранат",
+    "Дыня",
+    "Дуб",
+    "Клубника",
+    "Киви"
+};
+
+            var groups = words
+                .GroupBy(w => w[0])
+                .OrderBy(group => group.Key);
+
+            foreach (var group in groups)
+            {
+                var sortedWords = group.OrderBy(w => w);
+
+                Console.WriteLine(group.Key + ": " + string.Join(", ", sortedWords));
+            }
         }
     }
 }
