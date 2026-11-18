@@ -60,8 +60,8 @@ namespace Task
         public static void WordCount(this string input)
         {
             string text = input;
-            Console.WriteLine("=========================================");
 
+        
             Dictionary<string, int> wordCounts = new Dictionary<string, int>();
             char[] separators = new char[] { ' ', ',', '.', '!', '?', ':', ';', '-', '\t', '\n', '"', '(', ')' };
             string[] words = text.ToLower().Split(separators, StringSplitOptions.RemoveEmptyEntries);

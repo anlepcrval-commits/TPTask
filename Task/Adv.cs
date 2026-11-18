@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace Task
 {
-    public class Adv
+    public class Advv
     {
         public void Swith(int i)
         {
@@ -19,6 +19,9 @@ namespace Task
                 case 40: Adv40().GetAwaiter().GetResult(); break;
                 case 41: Adv41().GetAwaiter().GetResult(); break;
                 case 42: Adv42().GetAwaiter().GetResult(); break;
+                case 43: Adv43(); break;
+                case 44: Adv44(); break;
+                case 45: Adv45(); break;
                 default:
                     Console.WriteLine("Неверный выбор.");
                     break;
@@ -365,7 +368,7 @@ namespace Task
 
             try
             {
-                
+
                 var operation = LongOperationAsync(cts.Token);
                 await System.Threading.Tasks.Task.Delay(2000);
 
@@ -382,7 +385,7 @@ namespace Task
                 cts.Dispose();
             }
         }
-        class CustomException : Exception
+            class CustomException : Exception
         {
             public CustomException(string message) : base(message)
             {
@@ -497,8 +500,36 @@ namespace Task
                 Console.WriteLine("Завершено.");
             }
         }
+        public static void Adv44()
+        {
+            Console.Clear();
 
+            Console.WriteLine("Задание 44. Мини-проект «Todo List» (классы + JSON)");
+            Console.WriteLine("Что сделать: консольное приложение для списка задач с сохранением в JSON.");
+            Console.WriteLine("Требования:" + Environment.NewLine +
+                "• Классы: TaskItem (Id, Title, IsDone), TaskRepository (CRUD), TaskService (бизнес-логика)." + Environment.NewLine +
+                "• CRUD-операции: добавить, вывести все, отметить выполненной, удалить." + Environment.NewLine +
+                "• Сохранение/загрузка через System.Text.Json (файл tasks.json)." + Environment.NewLine +
+                "• Меню с выбором действий." + Environment.NewLine +
+                "• Обработка ошибок (некорректный ввод, отсутствующий файл)." + Environment.NewLine +
+                "• Готово, если: задачи сохраняются между запусками, CRUD работает, ошибки обрабатываются." + Environment.NewLine);
+            ToDoproject todo = new ToDoproject();
+            todo.Run();
+        }
+        public static void Adv45()
+        {
+            Console.Clear();
 
-
+            Console.WriteLine("Задание 45. Мини-проект «Библиотека» + юнит-тесты");
+            Console.WriteLine("Что сделать: классы библиотеки + тесты.");
+            Console.WriteLine("Требования:" + Environment.NewLine +
+                "Классы: Book (Title, Author, IsAvailable), Reader (Name, BorrowedBooks), Library (выдача/возврат)." + Environment.NewLine +
+                "Логика: выдача книги читателю, возврат, лимит (не больше 3 книг на читателя)." + Environment.NewLine +
+                "Обработка: книгу уже выдали, лимит превышен — бросать исключения." + Environment.NewLine +
+                "Написать 5+ юнит-тестов (xUnit/NUnit) на ключевые сценарии." + Environment.NewLine +
+                "Все тесты должны проходить." + Environment.NewLine);
+            Library library = new Library();
+            library.Run();
+        }
     }
 }

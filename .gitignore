@@ -1,8 +1,9 @@
-
+# Visual Studio / .NET временные файлы и папки
+[Bb]in/
+[Oo]bj/
 .vs/
-bin/
-obj/
-packages/
+
+# Пользовательские настройки и кэш
 *.user
 *.suo
-
+packages/

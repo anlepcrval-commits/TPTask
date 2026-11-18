@@ -10,8 +10,8 @@ namespace Task
     {
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            menu.MenuRunner();
+          Menu menu = new Menu();
+           menu.MenuRunner();
         }
        
     }

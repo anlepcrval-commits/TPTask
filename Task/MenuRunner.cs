@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,31 +11,36 @@ namespace Task
     {
         public void MenuRunner()
         {
-            Console.WriteLine("==== Практика =====");
-            Console.WriteLine("1. Базовый уровень ");
-            Console.WriteLine("2. Среднинй уровень ");
-            Console.WriteLine("3. Продвинутый  уровень ");
-            Console.WriteLine("0. quit " + Environment.NewLine);
-            Console.WriteLine("Выберите уровень:");
+            Console.WriteLine("=====Практика======");
+            Console.WriteLine("1. Уровень 1 — Базовый (задания 1–15)");
+            Console.WriteLine("2. Уровень 2 — Средний (задания 16–35)");
+            Console.WriteLine("3. Уровень 3 — Продвинутый (задания 36–50)");
+            Console.WriteLine("4. Выход" + Environment.NewLine);
+            Console.WriteLine("Выберите уровень: ");
             LevelMenu();
         }
         public void LevelMenu()
         {
-            int a = Convert.ToInt32(Console.ReadLine());
-            switch (a)
+            int o = Convert.ToInt32(Console.ReadLine());
+            switch (o)
             {
-                case 0: 
-                    Environment.Exit(0);
+                case (4):
+                    Console.WriteLine(Environment.NewLine);
                     break;
-
                 case 1: BaseLvl();
                     break;
-                case 2: AvgLvl(); break;
+                case 2:
+                    AverageLevel();
+                    break;
+                case 3:
+                    Advlvl();
+                    break;
+
+
             }
         }
         public void BaseLvl()
         {
-            Console.Clear();
             Console.WriteLine("--- Уровень 1: Базовый ---");
             Console.WriteLine("Задание 1. Hello, World + текущая дата");
             Console.WriteLine("Задание 2. Переменные примитивных типов");
@@ -54,14 +58,10 @@ namespace Task
             Console.WriteLine("Задание 14. Возраст по дате рождения");
             Console.WriteLine("Задание 15. Git: репозиторий → ветка → merge → разрешение конфликта" + Environment.NewLine);
             Console.WriteLine("Выберите задание: ");
-            int a = Convert.ToInt32(Console.ReadLine());
-            Task1 prog = new Task1();
-            prog.Swith(a);
         }
-        public void AvgLvl()
+        public void AverageLevel()
         {
-            Console.Clear();
-            Console.WriteLine("--- Уровень: Продвинутый (Задания 16–34) ---");
+            Console.WriteLine("--- Уровень 2 — Средний ---");
             Console.WriteLine("Задание 16. Методы расширения для string");
             Console.WriteLine("Задание 17. StringBuilder vs конкатенация (замер)");
             Console.WriteLine("Задание 18. TryParse vs try/catch");
@@ -82,10 +82,26 @@ namespace Task
             Console.WriteLine("Задание 33. LINQ: сотрудники (top-3, avg по отделу, фильтр)");
             Console.WriteLine("Задание 34. LINQ: группировка слов по первой букве" + Environment.NewLine);
             Console.WriteLine("Выберите задание: ");
+        }
+        public void Advlvl()
+        {
+            Console.Clear();
+            Console.WriteLine("--- Уровень: Эксперт / Профессиональный (Задания 36–50) ---");
+            Console.WriteLine("Задание 36. Дубликаты в List (HashSet + GroupBy)");
+            Console.WriteLine("Задание 37. Мемоизация Фибоначчи через Dictionary");
+            Console.WriteLine("Задание 38. List<T> vs LinkedList<T> (бенчмарк)");
+            Console.WriteLine("Задание 39. yield return — генератор чётных чисел");
+            Console.WriteLine("Задание 40. async/await + обработка исключений");
+            Console.WriteLine("Задание 41. Task.WhenAll — параллельно 10 задач");
+            Console.WriteLine("Задание 42. CancellationToken — отмена через 2 сек");
+            Console.WriteLine("Задание 43. Множественные типы исключений, порядок catch");
+            Console.WriteLine("Задание 44. Мини-проект «Todo List» (классы + JSON)");
+            Console.WriteLine("Задание 45. Мини-проект «Библиотека» + юнит-тесты коммита)" + Environment.NewLine);
+            Console.WriteLine("Выберите задание: ");
 
             int a = Convert.ToInt32(Console.ReadLine());
-            Avg prog = new Avg(); 
-            prog.Swith(a);
+            Advv program = new Advv();
+            program.Swith(a);
         }
     }
 }
