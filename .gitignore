@@ -1,6 +1,8 @@
-"bin/" 
-"obj/" 
-".vs/" 
-"*.user" 
-"bin/" 
-"obj/"  ".vs/"  "*.user" 
+
+.vs/
+bin/
+obj/
+packages/
+*.user
+*.suo
+
